@@ -92,7 +92,7 @@ export const logout = (req, res) => {
     }
     catch(error)
     {
-        console.log("Error in the LogOut controller", error.message)
+        console.log("Error in the Logout controller", error.message)
         res.status(500).json({ msg: "internal error" })
     }
         
