@@ -1,17 +1,17 @@
-// import React from 'react'
 
 import { useAuthContext } from "../../../context/AuthContext";
+import { extractTime } from "../../utils/extractTime";
 import useConversation from "../../zustand/useConversation";
 
-const Message = () => {
+const Message = ({message}) => {
  const { authUser } = useAuthContext();
  const { selectedConversation } = useConversation();
- const fromMe = messages.senderId === authUser._id;
-//  const formattedTime = extractTime(message.createdAt);
+ const fromMe = message.senderId === authUser._id;
+ const formattedTime = extractTime(message.createdAt);
  const chatClassName = fromMe ? "chat-end" : "chat-start";
  const profilePic = fromMe
-   ? authUser.profilePic
-   : selectedConversation?.profilePic;
+   ? authUser.profilePics
+   : selectedConversation?.profilePics;
  const bubbleBgColor = fromMe ? "bg-rose-500" : "";
 
  const shakeClass = message.shouldShake ? "shake" : "";
@@ -29,7 +29,7 @@ const Message = () => {
        {message.message}
      </div>
      <div className="chat-footer opacity-50 text-xs flex gap-1 items-center">
-       {/* {formattedTime} */}
+       {formattedTime}
      </div>
    </div>
  );

@@ -8,7 +8,7 @@ const isSelected = selectedConversation?._id === conversation._id;
     <>
       <div
         className={`flex gap-2 items-center hover:bg-rose-500 rounded p-2 py-1 cursor-pointer
-				${isSelected ? "bg-sky-500" : ""}
+				${isSelected ? "bg-rose-500" : ""}
 			`}
         onClick={() => setSelectedConversation(conversation)}
       >
