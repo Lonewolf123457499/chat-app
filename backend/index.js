@@ -1,6 +1,6 @@
 import express from"express"
 import dotenv from"dotenv"
-const app=express();
+// const app=express();
 const PORT=process.env.PORT||8080;
 
 import cookieParser from "cookie-parser";
@@ -10,6 +10,7 @@ import connectTomongoosedb from "./db/connectionToMongodb.js";
 import userRouter from "./routes/users.routes.js"
 dotenv.config();
 app.use(express.json())
+import{app,server} from "./socket/socket.js"
 
 import cors from "cors"
 
@@ -26,6 +27,6 @@ app.use("/api/users",userRouter);
 app.get("/",(req,res)=>{
     res.send("hi");
 })
- app.listen(PORT,()=>{
+ server.listen(PORT,()=>{
 console.log(`http://localhost:${PORT}`)
  })

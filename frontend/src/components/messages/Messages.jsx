@@ -2,9 +2,11 @@ import { useEffect, useRef } from "react";
 import useGetMessages from "../../hooks/useGetMessages";
 import MessageSkeleton from "../../shimmer/shimmer";
 import Message from "./Message";
+import useListenMessages from "../../hooks/useListenMessage";
 
 const Messages = () => {
   const { messages, loading } = useGetMessages();
+  useListenMessages()
   console.log(messages);
   const lastMessageRef = useRef();
 
